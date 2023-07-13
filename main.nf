@@ -2,7 +2,9 @@
 
 params.input = []
 
-Channel.from(params.input)
+
+
+Channel.fromList(params.input)
 
 // Channel.fromPath(params.input).set{cram}
 
