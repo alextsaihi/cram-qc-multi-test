@@ -2,13 +2,7 @@
 
 params.input = []
 
-
-
-Channel.fromList(params.input)
-
-// Channel.fromPath(params.input).set{cram}
-
-input = params.input
+input = Channel.fromList(params.input)
 
 def helpMessage(message) {
     log.info"""
