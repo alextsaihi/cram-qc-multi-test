@@ -2,7 +2,7 @@
 
 params.input = null
 
-input = params.input
+drsuris = Channel.fromList(params.input)
 
 def helpMessage(message) {
     log.info"""
@@ -27,16 +27,13 @@ if (input == null) {
 
 process samtools_head {
     input:
-        inputC = Channel
-                        .fromList( ${input} )
-                        .view { "value: $it" }
-
+        drsuri from drsuris
 
     output:
         path "output_samtools_head.txt"
 
     script:
     """
-    samtools head ${inputC} > output_samtools_head.txt
+    samtools head ${drsuri} > output_samtools_head.txt
     """
 }
