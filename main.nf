@@ -26,12 +26,17 @@ if (input == null) {
 }
 
 process samtools_head {
+    input:
+        inputC = Channel
+                        .fromList( ${input} )
+                        .view { "value: $it" }
+
 
     output:
         path "output_samtools_head.txt"
 
     script:
     """
-    samtools head ${input} > output_samtools_head.txt
+    samtools head ${inputC} > output_samtools_head.txt
     """
 }
