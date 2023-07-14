@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
-params.input = []
+params.input = null
 
-input = Channel.fromList(params.input)
+input = params.input
 
 def helpMessage(message) {
     log.info"""
